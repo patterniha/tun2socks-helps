@@ -1,0 +1,85 @@
+
+{
+  "__Credits__": {
+    "donate": "USDT (TRC20): TU5gKvKqcXPn8itp1DouBCwcqGHMemBm8o"
+  },
+
+
+  "remarks": "Forwarder",
+
+  "version": {
+    "min": "25.10.15"
+  },
+
+  "log": {
+    "loglevel": "warning", "dnsLog": false, "access": "none"
+  },
+
+  "policy": {
+    "levels": {
+      "0": {
+        "uplinkOnly": 0,
+        "downlinkOnly": 0
+      }
+    }
+  },
+
+  "inbounds": [
+    {
+      "tag": "dns-forwarder",
+      // "listen": "127.0.0.1",
+      "port": 53, // or 10853
+      "protocol": "tunnel",
+      "settings": {
+        "address": "", // remote dns-in address
+        "port": 10853, // remote dns-in port
+        "network": "tcp,udp"
+      },
+      "streamSettings": {
+        "sockopt": {
+          "tcpKeepAliveInterval": 1,
+          "tcpKeepAliveIdle": 46
+        }
+      }
+    },
+	{
+      "tag": "socks-forwarder",
+      // "listen": "127.0.0.1",
+      "port": 10808,
+      "protocol": "tunnel",
+      "settings": {
+        "address": "", // remote socks-in address
+        "port": 10808, // remote socks-in port
+        "network": "tcp,udp"
+      },
+      "streamSettings": {
+        "sockopt": {
+          "tcpKeepAliveInterval": 1,
+          "tcpKeepAliveIdle": 46
+        }
+      }
+    }
+  ],
+
+  "outbounds": [
+    {
+      "tag": "block-out",
+      "protocol": "block"
+    },
+    {
+      "tag": "direct-out",
+      "protocol": "direct"
+    }
+  ],
+
+  "routing": {
+    "rules": [
+      {"outboundTag": "block-out",
+       "port": 0
+      },
+      {"outboundTag": "direct-out",
+       "port": "0-65535"
+      }
+    ]
+  }
+}
