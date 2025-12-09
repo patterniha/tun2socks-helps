@@ -1,4 +1,11 @@
 @echo off
+:: Check if script is running as admin
+net session >nul 2>&1
+if %errorlevel% neq 0 (
+    echo Elevating to administrator...
+    powershell -command "Start-Process '%~f0' -Verb RunAs"
+    exit /b
+)
 
 netsh interface ipv4 set address "wintun" static 10.10.14.1 255.255.255.252
 netsh interface ipv6 set address "wintun" fc00::10:10:14:1/126

@@ -3,6 +3,13 @@
 
 
 @echo off
+:: Check if script is running as admin
+net session >nul 2>&1
+if %errorlevel% neq 0 (
+    echo Elevating to administrator...
+    powershell -command "Start-Process '%~f0' -Verb RunAs"
+    exit /b
+)
 
 "tun2socks.exe" -device wintun -proxy socks5://127.0.0.1:10808 -tcp-auto-tuning -tcp-rcvbuf 4m -tcp-sndbuf 4m -mtu 1500 -loglevel info -udp-timeout 30s
 
