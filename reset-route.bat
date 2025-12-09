@@ -7,6 +7,10 @@ if %errorlevel% neq 0 (
     exit /b
 )
 
+netsh interface ipv4 set address "Wi-Fi" source=dhcp
+
+netsh interface ipv4 delete dnsservers name="Wi-Fi" all
+netsh interface ipv6 delete dnsservers name="Wi-Fi" all
 netsh interface ipv4 set dnsservers name="Wi-Fi" source=dhcp
 netsh interface ipv6 set dnsservers name="Wi-Fi" source=dhcp
 
