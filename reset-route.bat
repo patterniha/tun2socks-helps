@@ -10,4 +10,7 @@ if %errorlevel% neq 0 (
 netsh interface ipv4 set dnsservers name="Wi-Fi" source=dhcp
 netsh interface ipv6 set dnsservers name="Wi-Fi" source=dhcp
 
+net stop wlansvc
+net start wlansvc
+
 pause
