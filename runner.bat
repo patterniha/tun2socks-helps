@@ -1,7 +1,6 @@
 :: https://github.com/xjasonlyu/tun2socks
 :: https://www.wintun.net/
 
-:: WARNING: socks5 UDP-IP should set to LAN-IP in target-config socks5 settings.
 
 @echo off
 
@@ -9,6 +8,6 @@
 
 
 :: it use default interface to send data, you can explicitly define (other) interface with #-interface "Wi-Fi"#
-:: but if interface is explicitly defined, udp-bind-IP-in-UDP-associate-response should be in explicted-defined-interface-IP-ranges(tun2socks bug)
+:: but if interface is explicitly defined, udp-bind-IP-in-UDP-associate-response should be in explicted-defined-interface-IP-ranges (tun2socks bug)
 
 :: you can use socks-forwarder-addr/target-socks-in-addr for socks5 address, but care about udp-bind-IP-in-UDP-associate-response for differnt scenarios
