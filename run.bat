@@ -11,7 +11,7 @@ if %errorlevel% neq 0 (
     exit /b
 )
 
-"tun2socks.exe" -device wintun -proxy socks5://127.0.0.1:10808 -tcp-auto-tuning -tcp-rcvbuf 4m -tcp-sndbuf 4m -mtu 1500 -loglevel info -udp-timeout 30s
+"tun2socks-windows-amd64-v3.exe" -device wintun -proxy socks5://127.0.0.1:10808 -tcp-auto-tuning -tcp-rcvbuf 4m -tcp-sndbuf 4m -mtu 1500 -loglevel info -udp-timeout 30s
 
 pause
 
