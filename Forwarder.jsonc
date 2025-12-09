@@ -48,7 +48,7 @@
       "port": 10808,
       "protocol": "tunnel",
       "settings": {
-        "address": "", // remote socks-in address
+        "address": "", // remote socks-in address, WARNING: socks5 UDP-IP should set to LAN-IP in target-config socks5 settings.
         "port": 10808, // remote socks-in port
         "network": "tcp,udp"
       },
