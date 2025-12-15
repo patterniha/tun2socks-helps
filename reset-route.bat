@@ -17,4 +17,6 @@ netsh interface ipv6 set dnsservers name="Wi-Fi" source=dhcp
 net stop wlansvc
 net start wlansvc
 
+ipconfig /flushdns
+
 pause
