@@ -1,0 +1,6 @@
+other solution:
+https://github.com/wiresock/proxifyre
+
+
+tun: support ICS
+proxifyer: core does not need to run in separate OS. (set dns-in port to 53 and set system dns to 127.0.0.1/::1, localhost-dns not supported)
